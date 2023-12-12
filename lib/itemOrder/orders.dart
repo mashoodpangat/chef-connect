@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pelaicons/pelaicons.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 int order_idd = 0;
 int tableindex = 0;
@@ -857,13 +858,12 @@ class _OrdersState extends State<OrdersPage> {
                 child: (() {
                   if (order_idd == 0) {
                     return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const SizedBox(
-                          width: 10,
-                        ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width / 2.3,
-                          height: 55,
+                          width: Adaptive.w(45),
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 55 : 60,
                           child: Consumer<DataProvider>(
                             builder: (context, value, child) {
                               return ElevatedButton(
@@ -998,12 +998,12 @@ class _OrdersState extends State<OrdersPage> {
                             },
                           ),
                         ),
-                        const SizedBox(
-                          width: 25,
-                        ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width / 2.3,
-                          height: 55,
+                          width: MediaQuery.of(context).size.width < 600
+                              ? Adaptive.w(45)
+                              : Adaptive.w(45),
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 55 : 60,
                           child: Consumer<DataProvider>(
                             builder: (context, value, child) {
                               return ElevatedButton(
@@ -1158,7 +1158,7 @@ class _OrdersState extends State<OrdersPage> {
                   } else if (invoice_type == "SO") {
                     return SizedBox(
                       width: MediaQuery.of(context).size.width / 2.3,
-                      height: 55,
+                      height: MediaQuery.of(context).size.width < 600 ? 55 : 60,
                       child: Consumer<DataProvider>(
                         builder: (context, value, child) {
                           return Padding(
@@ -1302,13 +1302,12 @@ class _OrdersState extends State<OrdersPage> {
                   } else if (invoice_type == "Cart") {
                     // Render different content for other cases
                     return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const SizedBox(
-                          width: 10,
-                        ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 2.3,
-                          height: 55,
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 55 : 60,
                           child: Consumer<DataProvider>(
                             builder: (context, value, child) {
                               return ElevatedButton(
@@ -1456,12 +1455,10 @@ class _OrdersState extends State<OrdersPage> {
                             },
                           ),
                         ),
-                        const SizedBox(
-                          width: 25,
-                        ),
                         SizedBox(
                           width: MediaQuery.of(context).size.width / 2.3,
-                          height: 55,
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 55 : 60,
                           child: Consumer<DataProvider>(
                             builder: (context, value, child) {
                               return ElevatedButton(

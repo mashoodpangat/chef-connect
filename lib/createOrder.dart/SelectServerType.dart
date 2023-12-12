@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 String deliveryTtype = "";
 
@@ -35,6 +36,7 @@ class _ServerSelectState extends State<ServerSelect> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
     return Scaffold(
         backgroundColor: Color.fromARGB(255, 5, 35, 69),
         body: Consumer<DataProvider>(builder: (context, value, child) {
@@ -50,8 +52,8 @@ class _ServerSelectState extends State<ServerSelect> {
             return Column(
               children: [
                 Container(
-                  width: double.infinity,
-                  height: 100,
+                  width: Adaptive.w(100),
+                  height: 13.h,
                   color: Colors.transparent,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,7 +84,7 @@ class _ServerSelectState extends State<ServerSelect> {
                     "SELECT SERVER TYPE",
                     style: TextStyle(
                         color: wcolor,
-                        fontSize: 25,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.bold),
                   ),
                 ),
@@ -169,12 +171,11 @@ class _ServerSelectState extends State<ServerSelect> {
                   flex: 2,
                   child: GridView.builder(
                       physics: NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithMaxCrossAxisExtent(
-                              maxCrossAxisExtent: 400,
-                              childAspectRatio: 4 / 1.2,
-                              crossAxisSpacing: 25,
-                              mainAxisSpacing: 20),
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: size < 600 ? 400 : 600,
+                          childAspectRatio: size < 600 ? 4 / 1.2 : 6 / 1.2,
+                          crossAxisSpacing: 25,
+                          mainAxisSpacing: 20),
                       itemCount: 4,
                       itemBuilder: (BuildContext ctx, index) {
                         return Padding(

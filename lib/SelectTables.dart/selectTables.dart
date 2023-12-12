@@ -419,6 +419,7 @@ class _SelectTablesState extends State<SelectTables>
                               topLeft: Radius.circular(30),
                               topRight: Radius.circular(30))),
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
                             height: 20,
@@ -491,8 +492,8 @@ class _SelectTablesState extends State<SelectTables>
                             height: 10,
                           ),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              SizedBox(width: 120, height: 10),
                               CircleAvatar(
                                 child: IconButton(
                                   onPressed: () {

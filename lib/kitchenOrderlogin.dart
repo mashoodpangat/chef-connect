@@ -255,6 +255,7 @@ class _KitchenOrderState extends State<KitchenOrder> {
                               : () {
                                   username = emailcontroller.text;
                                   password = passcontroller.text;
+                                  print(apidomine);
                                   login();
                                 },
                           child: _isLoading

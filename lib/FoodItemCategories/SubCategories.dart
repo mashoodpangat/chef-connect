@@ -17,6 +17,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 String catId = "";
 late DataProvider subCategoriesprovider;
@@ -292,7 +293,12 @@ class _SubCategoriesPageState extends State<SubCategoriesPage> {
                                         children: [
                                           Container(
                                             width: 200,
-                                            height: 120,
+                                            height: MediaQuery.of(context)
+                                                        .size
+                                                        .width <
+                                                    600
+                                                ? 120
+                                                : 170,
                                             decoration: BoxDecoration(
                                                 image: DecorationImage(
                                                     image: NetworkImage(
@@ -304,24 +310,25 @@ class _SubCategoriesPageState extends State<SubCategoriesPage> {
                                                     BorderRadius.circular(12)),
                                           ),
                                           Container(
-                                            width: 100,
+                                            width: 20.w,
                                             height: 30,
                                             color: Colors.transparent,
                                             child: Center(
-                                                child: Text(
-                                                    // value.subCategorySearch !=
-                                                    //         null
-                                                    //     ? value
-                                                    //         .subCategorySearch
-                                                    //         .data
-                                                    //         .subcategories[
-                                                    //             index]
-                                                    //         .name
-                                                    //     :
-                                                    value
-                                                        .subCategories
-                                                        .subcategories[index]
-                                                        .name)),
+                                              child: Text(
+                                                // value.subCategorySearch !=
+                                                //         null
+                                                //     ? value
+                                                //         .subCategorySearch
+                                                //         .data
+                                                //         .subcategories[
+                                                //             index]
+                                                //         .name
+                                                //     :
+                                                value.subCategories
+                                                    .subcategories[index].name,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ),
                                             // subCategoriesSearchprovider
                                             //     .subCategorySearch
                                             //     .data

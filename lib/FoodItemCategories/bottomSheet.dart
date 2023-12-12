@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class YourBottomSheet extends StatefulWidget {
   @override
@@ -212,7 +213,7 @@ class _YourBottomSheetState extends State<YourBottomSheet> {
                                                         BorderRadius.circular(
                                                             15),
                                                     child: Image.asset(
-                                                      "assets/—Pngtree—a bowl of cartoon food_4440485.png",
+                                                      "assets/food.png",
                                                       fit: BoxFit.fill,
                                                     )),
                                               ),
@@ -373,71 +374,24 @@ class _YourBottomSheetState extends State<YourBottomSheet> {
               ),
               Row(
                 children: [
-                  SizedBox(
-                      height: 50,
-                      width: 210,
+                  Expanded(
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        child: ElevatedButton(
-                          onPressed: () {
-                            setState(() {
-                              Modifier = _textEditingController.text.trim();
-                              _textEditingController.clear();
-                            });
-                            print(_textEditingController);
-
-                            // Product _selectedProduct = value
-                            //     .productCategory.data.products[index];
-                            // selectedProducts.add(_selectedProduct);
-                            // print(selectedProducts);
-
-                            selectedProducts.add({
-                              "Barcode": Barcode,
-                              "Qty": productQuantity,
-                              "UnitID": UnitID,
-                              "SalesPrice": SalesPrice,
-                              "Modifier": Modifier,
-                              "name": Name,
-                              "time": time
-                            });
-                            print(selectedProducts);
-
-                            // DataProvider().GetItemsOrders();
-                            // Provider.of<DataProvider>(context,
-                            //         listen: false)
-                            //     .GetItemsOrders();
-
-                            // Navigator.of(context).push(MaterialPageRoute(
-                            //   builder: (context) {
-                            //     return SubCategoriesPage();
-                            //   },
-                            // ));
-
-                            Get.to(() => SubCategoriesPage(),
-                                transition: Transition.fade);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: maincolor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0)),
-                          ),
-                          child: const Text(
-                            "ADD",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      )),
-                  SizedBox(
-                    height: 50,
-                    width: 160,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 15),
+                    padding: const EdgeInsets.only(left: 20),
+                    child: SizedBox(
+                      height:
+                          MediaQuery.of(context).size.width < 600 ? 6.h : 7.h,
                       child: ElevatedButton(
                         onPressed: () {
                           setState(() {
                             Modifier = _textEditingController.text.trim();
                             _textEditingController.clear();
                           });
+                          print(_textEditingController);
+
+                          // Product _selectedProduct = value
+                          //     .productCategory.data.products[index];
+                          // selectedProducts.add(_selectedProduct);
+                          // print(selectedProducts);
 
                           selectedProducts.add({
                             "Barcode": Barcode,
@@ -448,25 +402,82 @@ class _YourBottomSheetState extends State<YourBottomSheet> {
                             "name": Name,
                             "time": time
                           });
+                          print(selectedProducts);
 
-                          Provider.of<Stateprovider>(context, listen: false)
-                              .calculateGrandTotal(selectedProducts);
+                          // DataProvider().GetItemsOrders();
+                          // Provider.of<DataProvider>(context,
+                          //         listen: false)
+                          //     .GetItemsOrders();
 
-                          Get.to(() => OrdersPage(),
-                              transition: Transition.fade);
+                          // Navigator.of(context).push(MaterialPageRoute(
+                          //   builder: (context) {
+                          //     return SubCategoriesPage();
+                          //   },
+                          // ));
+
+                          // Get.to(() => SubCategoriesPage(),
+                          //     transition: Transition.fade);
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => SubCategoriesPage(),
+                          ));
                         },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey,
+                          backgroundColor: maincolor,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)),
                         ),
                         child: const Text(
-                          "Finish",
+                          "ADD",
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
+                  )),
+                  SizedBox(
+                    width: 2.w,
                   ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: SizedBox(
+                        height:
+                            MediaQuery.of(context).size.width < 600 ? 6.h : 7.h,
+                        child: ElevatedButton(
+                          onPressed: () {
+                            setState(() {
+                              Modifier = _textEditingController.text.trim();
+                              _textEditingController.clear();
+                            });
+
+                            selectedProducts.add({
+                              "Barcode": Barcode,
+                              "Qty": productQuantity,
+                              "UnitID": UnitID,
+                              "SalesPrice": SalesPrice,
+                              "Modifier": Modifier,
+                              "name": Name,
+                              "time": time
+                            });
+
+                            Provider.of<Stateprovider>(context, listen: false)
+                                .calculateGrandTotal(selectedProducts);
+
+                            Get.to(() => OrdersPage(),
+                                transition: Transition.fade);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                          ),
+                          child: const Text(
+                            "Finish",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
                 ],
               )
             ],

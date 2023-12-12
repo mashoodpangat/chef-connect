@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,14 +31,16 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => DataProvider()),
         ChangeNotifierProvider(create: (context) => Stateprovider()),
       ],
-      child: GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          useMaterial3: true,
-        ),
-        home: splashscreen(),
-      ),
+      child: ResponsiveSizer(builder: (context, orientation, screenType) {
+        return GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Flutter Demo',
+          theme: ThemeData(
+            useMaterial3: true,
+          ),
+          home: splashscreen(),
+        );
+      }),
     );
   }
 }

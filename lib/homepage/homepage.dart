@@ -167,12 +167,10 @@ class _homepageState extends State<homepage> {
           resizeToAvoidBottomInset: false,
           drawer: const DrawerPage(),
           appBar: AppBar(
-            title: Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Image.asset(
-                "assets/Voxo chef connect PNG.png",
-                scale: 11,
-              ),
+            centerTitle: true,
+            title: Image.asset(
+              "assets/Voxo chef connect PNG.png",
+              scale: 11,
             ),
             leading: Builder(builder: (context) {
               return IconButton(

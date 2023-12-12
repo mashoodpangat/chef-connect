@@ -54,6 +54,7 @@ dependencies:
   pelaicons: ^0.0.1
   scrollable_positioned_list: ^0.3.0
   auto_scroll: ^0.2.0
+  responsive_sizer: ^3.2.0
 
   
  
@@ -106,7 +107,7 @@ flutter:
     - assetslottie/log out 2.json
     - assetslottie/log out 3.json
     - assets/meat-cheese-hamburger-white-background_1308-81858.jpg
-    - assets/—Pngtree—a bowl of cartoon food_4440485.png
+    - assets/food.png
     - assets/voxprotechnologypng.png
 
 

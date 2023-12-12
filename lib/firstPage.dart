@@ -2,6 +2,7 @@ import 'package:chef_connect_project/FadeAnimation/FadeAnimation.dart';
 import 'package:chef_connect_project/kitchenOrderlogin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -53,11 +54,10 @@ class FirstPage extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                 ),
               ),
-              SizedBox(
-                  height: 80,
-                  width: MediaQuery.of(context).size.width - 40,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 33, top: 25),
+              Center(
+                child: SizedBox(
+                    height: 50,
+                    width: MediaQuery.of(context).size.width - 40,
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -76,53 +76,51 @@ class FirstPage extends StatelessWidget {
                         child: const Text(
                           "Kitchen Order",
                           style: TextStyle(fontSize: 16, color: Colors.white),
-                        )),
-                  )),
+                        ))),
+              ),
+              SizedBox(
+                height: 1.h,
+              ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 45, top: 17),
-                    child: SizedBox(
-                      height: 45,
-                      width: 140,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(13), // <-- Radius
-                              ),
-                              backgroundColor: const Color.fromARGB(
-                                255,
-                                4,
-                                80,
-                                156,
-                              )),
-                          onPressed: () {},
-                          child: const Text(
-                            "Kitchen display",
-                            style: TextStyle(fontSize: 13, color: Colors.white),
-                          )),
-                    ),
+                  SizedBox(
+                    height: 45,
+                    width: Adaptive.w(40),
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(13), // <-- Radius
+                            ),
+                            backgroundColor: const Color.fromARGB(
+                              255,
+                              4,
+                              80,
+                              156,
+                            )),
+                        onPressed: () {},
+                        child: const Text(
+                          "Kitchen display",
+                          style: TextStyle(fontSize: 13, color: Colors.white),
+                        )),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10, top: 17),
-                    child: SizedBox(
-                      height: 45,
-                      width: 140,
-                      child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.circular(13), // <-- Radius
-                              ),
-                              backgroundColor:
-                                  const Color.fromARGB(255, 232, 60, 48)),
-                          onPressed: () {},
-                          child: const Text(
-                            "Settlement",
-                            style: TextStyle(fontSize: 13, color: Colors.white),
-                          )),
-                    ),
+                  SizedBox(
+                    height: 45,
+                    width: Adaptive.w(40),
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(13), // <-- Radius
+                            ),
+                            backgroundColor:
+                                const Color.fromARGB(255, 232, 60, 48)),
+                        onPressed: () {},
+                        child: const Text(
+                          "Settlement",
+                          style: TextStyle(fontSize: 13, color: Colors.white),
+                        )),
                   ),
                 ],
               ),
@@ -160,9 +158,11 @@ class FirstPage extends StatelessWidget {
                 height: 40,
               ),
               const Center(
-                  child: Text(
-                "Powered By",
-                style: TextStyle(color: Colors.white, fontSize: 13),
+                  child: Align(
+                child: Text(
+                  "Powered By",
+                  style: TextStyle(color: Colors.white, fontSize: 13),
+                ),
               )),
               SizedBox(
                 height: 33,
